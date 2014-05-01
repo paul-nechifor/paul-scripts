@@ -1,0 +1,25 @@
+/*
+Author: Paul Nechifor
+Sait:
+Email:
+Creat: 15.04.2007
+Modificat: 17.04.2007
+
+Copyright (C) 2007 Paul Nechifor. Nu poti sa folosesti nimic de aici.
+*/
+
+body {padding:0; margin:0; background:#C18845;}
+div#root {margin:0 auto 0 auto; width:963px;}
+
+div#header {width:963px; height:211px; margin:0; background:url(../img/header.jpg) no-repeat;}
+div#header h1{margin:0; text-indent:-9999px;}
+
+div#box {width:963px; margin:0; padding:0; position:relative; background:url(../img/box_repeat.gif) repeat-y;}
+div#box h2 {margin:0; padding:0;}
+div#continut {width:735px; background:url(../img/continut.gif) no-repeat; min-height:750px;} 
+div#meniu {width:226px; position:absolute; left:736px; top:0px; background:url(../img/meniu.gif) no-repeat;}
+div#scris {padding: 10px 10px 10px 90px;}
+div#titlu {padding: 10px 10px 10px 90px;}
+
+div#footer {width: 963px; height:100px; background:url(../img/footer.gif) no-repeat;}
+div#copyright {width:300px; position:relative; left:380px; top:60px;}

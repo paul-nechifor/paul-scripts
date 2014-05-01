@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>Name generator</title>
+	<link type="text/css" rel="stylesheet" media="screen" href="../../css/php.css" /> 
+</head>
+
+<body>
+
+<pre class="php"><code class="php-tag">&lt;?php
+</code><code class="comment">/*
+
+DENUMIRE:      Name generator
+VERSIUNE:      0.5
+AUTOR:         Paul Nechifor
+SITE:          de adaugat
+LICENTA:       GNU GPL
+INCEPUT:       12.02.2007
+MODIFICAT:     12.05.2007
+DESCRIERE:     Creaza denumiri prin metoda selectiei artificiale.
+
+
+
+DE CORECTAT:
+	- daca primeste numele &quot;_pa&quot; genereaza gaseste doua silabe
+
+*/</code>
+
+<code class="construct">class</code> <code class="function">Comune</code>
+{
+	public static <code class="construct">function</code> <code class="function">sansa</code>(<var>$vector</var>)
+	<code class="comment">//i se transmite un vector de sanse si intoarce ordinul celei alese +1
+
+</code>
+	{
+		<var>$suma</var><code class="assignment operator">=</code><code class="integer">0</code>;
+		<var>$n</var> <code class="assignment operator">=</code> <code class="function"><a href="http://www.php.net/count" title="PHP: count - Manual">count</a></code>(<var>$vector</var>);	
+		<code class="construct">for</code> (<var>$i</var><code class="assignment operator">=</code><code class="integer">0</code>; <var>$i</var><code class="comparison operator">&lt;</code><var>$n</var>; <var>$i</var><code class="assignment operator">++</code>) <var>$suma</var> <code class="assignment operator">+=</code><var>$vector</var>[<var>$i</var>];
+		
+		<var>$ord</var> <code class="assignment operator">=</code> <code class="integer">0</code>;
+		<var>$nr</var> <code class="assignment operator">=</code> <var>$vector</var>[<var>$ord</var>];
+		<var>$rand</var> <code class="assignment operator">=</code> <code class="function"><a href="http://www.php.net/mt_rand" title="PHP: mt_rand - Manual">mt_rand</a></code>(<code class="integer">1</code>,<var>$suma</var>);
+		
+		<code class="construct">while</code> (<var>$ord</var> <code class="comparison operator">&lt;=</code> <var>$n</var>)
+		{
+			<code class="construct">if</code> (<var>$rand</var> <code class="comparison operator">&lt;=</code> <var>$nr</var>) <code class="construct">return</code> <var>$ord</var>;
+			<var>$nr</var> <code class="assignment operator">+=</code> <var>$vector</var>[<code class="assignment operator">++</code><var>$ord</var>];
+		}	
+	}
+}
+
+
+<code class="construct">class</code> <code class="function">Litera</code>
+{
+	private static <var>$vocale</var> <code class="assignment operator">=</code>			<code class="construct">array</code>(<code class="encapsed">'a'</code>, <code class="encapsed">'e'</code>, <code class="encapsed">'i'</code>, <code class="encapsed">'o'</code>, <code class="encapsed">'u'</code>, <code class="encapsed">'y'</code>);
+	private static <var>$vocale_sansa</var> <code class="assignment operator">=</code>	<code class="construct">array</code>( <code class="integer">78</code>,  <code class="integer">89</code>,  <code class="integer">72</code>,  <code class="integer">75</code>,  <code class="integer">46</code>,  <code class="integer">19</code>);
+	private static <var>$consoane</var> <code class="assignment operator">=</code>			<code class="construct">array</code>(<code class="encapsed">'b'</code>, <code class="encapsed">'c'</code>, <code class="encapsed">'d'</code>, <code class="encapsed">'f'</code>, <code class="encapsed">'g'</code>, <code class="encapsed">'h'</code>, <code class="encapsed">'j'</code>, <code class="encapsed">'k'</code>, <code class="encapsed">'l'</code>, <code class="encapsed">'m'</code>, <code class="encapsed">'n'</code>, <code class="encapsed">'p'</code>, <code class="encapsed">'q'</code>, <code class="encapsed">'r'</code>, <code class="encapsed">'s'</code>, <code class="encapsed">'t'</code>, <code class="encapsed">'v'</code>, <code class="encapsed">'w'</code>, <code class="encapsed">'x'</code>, <code class="encapsed">'z'</code>);
+	private static <var>$consoane_sansa</var> <code class="assignment operator">=</code><code class="construct">array</code>( <code class="integer">14</code>,  <code class="integer">27</code>,  <code class="integer">42</code>,  <code class="integer">22</code>,  <code class="integer">20</code>,  <code class="integer">55</code>,  <code class="integer">11</code>,  <code class="integer">12</code>,  <code class="integer">40</code>,  <code class="integer">26</code>,  <code class="integer">58</code>,  <code class="integer">20</code>,   <code class="integer">3</code>,  <code class="integer">53</code>,  <code class="integer">43</code>,  <code class="integer">71</code>,  <code class="integer">12</code>,   <code class="integer">5</code>,   <code class="integer">6</code>,   <code class="integer">7</code>);
+	public static <var>$lista</var> <code class="assignment operator">=</code> <code class="encapsed">''</code>;
+
+	public static <code class="construct">function</code> <code class="function">vocala</code>()
+	{
+		<code class="construct">return</code> <code class="function">Litera</code><code class="object operator">::</code><var>$vocale</var>[<code class="function">Comune</code><code class="object operator">::</code><code class="function">sansa</code>(<code class="function">Litera</code><code class="object operator">::</code><var>$vocale_sansa</var>)];
+	}
+	public static <code class="construct">function</code> <code class="function">consoana</code>()
+	{
+		<code class="construct">return</code> <code class="function">Litera</code><code class="object operator">::</code><var>$consoane</var>[<code class="function">Comune</code><code class="object operator">::</code><code class="function">sansa</code>(<code class="function">Litera</code><code class="object operator">::</code><var>$consoane_sansa</var>)];
+	}
+	public static <code class="construct">function</code> <code class="function">este_vocala</code>(<var>$lit</var>)
+	{
+		<code class="construct">for</code> (<var>$i</var><code class="assignment operator">=</code><code class="integer">0</code>; <var>$i</var><code class="comparison operator">&lt;</code><code class="function"><a href="http://www.php.net/count" title="PHP: count - Manual">count</a></code>(<code class="function">Litera</code><code class="object operator">::</code><var>$vocale</var>); <var>$i</var><code class="assignment operator">++</code>)
+			<code class="construct">if</code> (<var>$lit</var><code class="comparison operator">==</code><code class="function">Litera</code><code class="object operator">::</code><var>$vocale</var>[<var>$i</var>]) <code class="construct">return</code> <code class="function">true</code>;
+		<code class="construct">return</code> <code class="function">false</code>;
+	}
+}
+
+
+<code class="construct">class</code> <code class="function">NameSelection</code>
+{	
+	<code class="comment">//&quot;Scheletul&quot; silabei si sansa de generare al unei astfel de silabe initial
+</code>
+	private static <var>$forma</var> <code class="assignment operator">=</code>      		<code class="construct">array</code>(<code class="encapsed">'V'</code>,<code class="encapsed">'CV'</code>,<code class="encapsed">'CCV'</code>,<code class="encapsed">'CCVC'</code>,<code class="encapsed">'VV'</code>,<code class="encapsed">'VVV'</code>,<code class="encapsed">'VC'</code>,<code class="encapsed">'CVC'</code>,<code class="encapsed">'CVCC'</code>);
+	private static <var>$forma_sansa</var> <code class="assignment operator">=</code>		<code class="construct">array</code>( <code class="integer">14</code>,  <code class="integer">30</code>,   <code class="integer">11</code>,     <code class="integer">5</code>,   <code class="integer">5</code>,    <code class="integer">2</code>,  <code class="integer">15</code>,   <code class="integer">33</code>,     <code class="integer">4</code>);
+	
+	<code class="comment">//Ce sansa are o anumita silaba sa se transforme intr-alta, pastrandu-se unele dintre litere
+
+</code>
+	private static <var>$transformare</var> <code class="assignment operator">=</code>		<code class="construct">array</code>(
+							<code class="encapsed">'V'</code> <code class="assignment operator">=&gt;</code> <code class="construct">array</code>( <code class="construct">array</code>(<code class="encapsed">'AC0'</code>,<code class="encapsed">'AC1'</code>,<code class="encapsed">'AV1'</code>,<code class="encapsed">'AV0'</code>) , <code class="construct">array</code>(<code class="integer">28</code>,<code class="integer">23</code>,<code class="integer">16</code>,<code class="integer">16</code>) ),
+							<code class="encapsed">'CV'</code> <code class="assignment operator">=&gt;</code> <code class="construct">array</code>( <code class="construct">array</code>(<code class="encapsed">'AC0'</code>,<code class="encapsed">'AC1'</code>,<code class="encapsed">'AC2'</code>,<code class="encapsed">'S0'</code>) , <code class="construct">array</code>(<code class="integer">12</code>,<code class="integer">12</code>,<code class="integer">30</code>,<code class="integer">20</code>) ),
+							<code class="encapsed">'CCV'</code> <code class="assignment operator">=&gt;</code> <code class="construct">array</code>( <code class="construct">array</code>(<code class="encapsed">'AC3'</code>,<code class="encapsed">'S0'</code>,<code class="encapsed">'S1'</code>) , <code class="construct">array</code>(<code class="integer">48</code>,<code class="integer">9</code>,<code class="integer">9</code>) ),
+							<code class="encapsed">'CCVC'</code> <code class="assignment operator">=&gt;</code> <code class="construct">array</code>( <code class="construct">array</code>(<code class="encapsed">'S0'</code>,<code class="encapsed">'S1'</code>,<code class="encapsed">'S3'</code>) , <code class="construct">array</code>(<code class="integer">32</code>,<code class="integer">32</code>,<code class="integer">12</code>) ),
+							<code class="encapsed">'VV'</code> <code class="assignment operator">=&gt;</code> <code class="construct">array</code>( <code class="construct">array</code>(<code class="encapsed">'AV2'</code>,<code class="encapsed">'S0'</code>,<code class="encapsed">'S1'</code>) , <code class="construct">array</code>(<code class="integer">30</code>,<code class="integer">16</code>,<code class="integer">16</code>) ),
+							<code class="encapsed">'VVV'</code> <code class="assignment operator">=&gt;</code> <code class="construct">array</code>( <code class="construct">array</code>(<code class="encapsed">'S0'</code>,<code class="encapsed">'S1'</code>,<code class="encapsed">'S2'</code>) , <code class="construct">array</code>(<code class="integer">1</code>,<code class="integer">1</code>,<code class="integer">1</code>) ),
+							<code class="encapsed">'VC'</code> <code class="assignment operator">=&gt;</code> <code class="construct">array</code>( <code class="construct">array</code>(<code class="encapsed">'AC0'</code>,<code class="encapsed">'S1'</code>) , <code class="construct">array</code>(<code class="integer">12</code>,<code class="integer">8</code>) ),
+							<code class="encapsed">'CVC'</code> <code class="assignment operator">=&gt;</code> <code class="construct">array</code>( <code class="construct">array</code>(<code class="encapsed">'AC0'</code>,<code class="encapsed">'AC1'</code>,<code class="encapsed">'AC3'</code>, <code class="encapsed">'S0'</code>, <code class="encapsed">'S2'</code>) , <code class="construct">array</code>(<code class="integer">8</code>,<code class="integer">8</code>,<code class="integer">6</code>,<code class="integer">37</code>,<code class="integer">42</code>) ),
+							<code class="encapsed">'CVCC'</code> <code class="assignment operator">=&gt;</code> <code class="construct">array</code>( <code class="construct">array</code>(<code class="encapsed">'S2'</code>, <code class="encapsed">'S3'</code>) , <code class="construct">array</code>(<code class="integer">1</code>,<code class="integer">1</code>) ),
+						);
+	
+	public static <code class="construct">function</code> <code class="function">silaba</code>()
+	{
+		<var>$s</var><code class="assignment operator">=</code><code class="function">Comune</code><code class="object operator">::</code><code class="function">sansa</code>(<code class="function">NameSelection</code><code class="object operator">::</code><var>$forma_sansa</var>);
+		<var>$sil</var> <code class="assignment operator">=</code> <code class="function">NameSelection</code><code class="object operator">::</code><var>$forma</var>[<var>$s</var><code class="arithmetic operator">-</code><code class="integer">1</code>]; <code class="comment">//&quot;scheletul&quot; silabei
+
+</code>
+		<code class="construct">for</code> (<var>$i</var><code class="assignment operator">=</code><code class="integer">0</code>; <var>$i</var><code class="comparison operator">&lt;</code><code class="function"><a href="http://www.php.net/strlen" title="PHP: strlen - Manual">strlen</a></code>(<var>$sil</var>); <var>$i</var><code class="assignment operator">++</code>) <code class="comment">//inlocuieste &quot;scheletul&quot; cu silaba
+
+</code>
+			<code class="construct">if</code> (<var>$sil</var>[<var>$i</var>]<code class="comparison operator">==</code><code class="encapsed">'V'</code>) <var>$sil</var>[<var>$i</var>] <code class="assignment operator">=</code> <code class="function">Litera</code><code class="object operator">::</code><code class="function">vocala</code>();
+			<code class="construct">else</code> <var>$sil</var>[<var>$i</var>] <code class="assignment operator">=</code> <code class="function">Litera</code><code class="object operator">::</code><code class="function">consoana</code>();
+		<code class="construct">return</code> <var>$sil</var>;
+	}
+	private static <code class="construct">function</code> <code class="function">schim_litera</code>(<var>$sil</var>)
+	{
+		<var>$r</var> <code class="assignment operator">=</code> <code class="function"><a href="http://www.php.net/mt_rand" title="PHP: mt_rand - Manual">mt_rand</a></code> (<code class="integer">0</code>, <code class="function"><a href="http://www.php.net/strlen" title="PHP: strlen - Manual">strlen</a></code>(<var>$sil</var>)<code class="arithmetic operator">-</code><code class="integer">1</code>);
+		<code class="construct">if</code> (<code class="function">Litera</code><code class="object operator">::</code><code class="function">este_vocala</code>(<var>$sil</var>[<var>$r</var>])) <var>$sil</var>[<var>$r</var>] <code class="assignment operator">=</code> <code class="function">Litera</code><code class="object operator">::</code><code class="function">vocala</code>();
+		<code class="construct">else</code> <var>$sil</var>[<var>$r</var>] <code class="assignment operator">=</code> <code class="function">Litera</code><code class="object operator">::</code><code class="function">consoana</code>();
+		<code class="construct">return</code> <var>$sil</var>;
+	}
+	private static <code class="construct">function</code> <code class="function">trans_silaba</code>(<var>$sil</var>)
+	{
+		<code class="comment">//afla &quot;scheletul&quot; silabei
+
+</code>
+		<var>$frm</var> <code class="assignment operator">=</code> <code class="encapsed">''</code>;
+		<code class="construct">for</code> (<var>$i</var><code class="assignment operator">=</code><code class="integer">0</code>; <var>$i</var><code class="comparison operator">&lt;</code><code class="function"><a href="http://www.php.net/strlen" title="PHP: strlen - Manual">strlen</a></code>(<var>$sil</var>); <var>$i</var><code class="assignment operator">++</code>)
+			<code class="construct">if</code> (<code class="function">Litera</code><code class="object operator">::</code><code class="function">este_vocala</code>(<var>$sil</var>[<var>$i</var>])) <var>$frm</var> <code class="assignment operator">.=</code> <code class="encapsed">'V'</code>;
+			<code class="construct">else</code> <var>$frm</var> <code class="assignment operator">.=</code> <code class="encapsed">'C'</code>;
+	
+		<code class="comment">//se verifica daca exista forma de silaba $frm
+
+</code>
+		<var>$exista</var> <code class="assignment operator">=</code> <code class="function">false</code>;
+		<code class="construct">for</code> (<var>$i</var><code class="assignment operator">=</code><code class="integer">0</code>; <var>$i</var><code class="comparison operator">&lt;</code><code class="function"><a href="http://www.php.net/count" title="PHP: count - Manual">count</a></code>(<code class="function">NameSelection</code><code class="object operator">::</code><var>$forma</var>); <var>$i</var><code class="assignment operator">++</code>) <code class="construct">if</code> (<var>$frm</var> <code class="comparison operator">==</code> <code class="function">NameSelection</code><code class="object operator">::</code><var>$forma</var>[<var>$i</var>]) <var>$exista</var> <code class="assignment operator">=</code> <code class="function">true</code>;
+		<code class="construct">if</code> (!<var>$exista</var>) <code class="construct">return</code> <code class="encapsed">'[FRM_INC]'</code>;
+		
+		<var>$s</var> <code class="assignment operator">=</code> <code class="function">Comune</code><code class="object operator">::</code><code class="function">sansa</code>(<code class="function">NameSelection</code><code class="object operator">::</code><var>$transformare</var>[<var>$frm</var>][<code class="integer">1</code>]);
+		<var>$act</var> <code class="assignment operator">=</code> <code class="function">NameSelection</code><code class="object operator">::</code><var>$transformare</var>[<var>$frm</var>][<code class="integer">0</code>][<var>$s</var><code class="arithmetic operator">-</code><code class="integer">1</code>]; <code class="comment">//afla actiunea ce trebuie urmata
+
+</code>
+		
+		<code class="construct">if</code> (<var>$act</var>[<code class="integer">0</code>]<code class="comparison operator">==</code><code class="encapsed">'S'</code>) <code class="comment">//stergere
+</code>
+		{
+			<code class="construct">for</code> (<var>$i</var><code class="assignment operator">=</code>((int)<var>$act</var>[<code class="integer">1</code>]); <var>$i</var><code class="comparison operator">&lt;</code><code class="function"><a href="http://www.php.net/strlen" title="PHP: strlen - Manual">strlen</a></code>(<var>$sil</var>)<code class="arithmetic operator">-</code><code class="integer">1</code>; <var>$i</var><code class="assignment operator">++</code>)
+				<var>$sil</var>[<var>$i</var>] <code class="assignment operator">=</code> <var>$sil</var>[<var>$i</var><code class="arithmetic operator">+</code><code class="integer">1</code>];
+			<var>$sil</var> <code class="assignment operator">=</code> <code class="function"><a href="http://www.php.net/substr" title="PHP: substr - Manual">substr</a></code>(<var>$sil</var>,<code class="integer">0</code>,<code class="function"><a href="http://www.php.net/strlen" title="PHP: strlen - Manual">strlen</a></code>(<var>$sil</var>)<code class="arithmetic operator">-</code><code class="integer">1</code>);	
+		} <code class="construct">else</code> { <code class="comment">//adaugare
+
+</code>
+			<code class="construct">for</code> (<var>$i</var><code class="assignment operator">=</code><code class="function"><a href="http://www.php.net/strlen" title="PHP: strlen - Manual">strlen</a></code>(<var>$sil</var>); <var>$i</var><code class="comparison operator">&gt;</code>((int)<var>$act</var>[<code class="integer">2</code>]); <var>$i</var><code class="assignment operator">--</code>)
+				<var>$sil</var>[<var>$i</var>] <code class="assignment operator">=</code> <var>$sil</var>[<var>$i</var><code class="arithmetic operator">-</code><code class="integer">1</code>];
+			<code class="construct">if</code> (<var>$act</var>[<code class="integer">1</code>]<code class="comparison operator">==</code><code class="encapsed">'C'</code>) <var>$sil</var>[(int)<var>$act</var>[<code class="integer">2</code>]] <code class="assignment operator">=</code> <code class="function">Litera</code><code class="object operator">::</code><code class="function">consoana</code>();
+			<code class="construct">else</code> <var>$sil</var>[(int)<var>$act</var>[<code class="integer">2</code>]] <code class="assignment operator">=</code> <code class="function">Litera</code><code class="object operator">::</code><code class="function">vocala</code>();
+		}
+		<code class="construct">return</code> <var>$sil</var>;
+	}
+	
+	private static <code class="construct">function</code> <code class="function">valid</code>(<var>$vector</var>)
+	{
+		<code class="construct">if</code> (<code class="function"><a href="http://www.php.net/count" title="PHP: count - Manual">count</a></code>(<var>$vector</var>)<code class="comparison operator">==</code><code class="integer">0</code>) <code class="construct">return</code> (<code class="function">false</code>); 
+		
+		<code class="comment">//trebuie verificat pentru silabe suparatoare
+
+</code>
+		<code class="comment">// doua consoane identice nu au voie sa faca parte din aceeasi silaba
+</code>
+		
+		<code class="construct">return</code> (<code class="function">true</code>);
+	}
+	
+	public static <code class="construct">function</code> <code class="function">mutatie</code>(<var>$str</var>)
+	{
+		<code class="construct">do</code>
+
+		{
+			<var>$silabe_mutatie</var> <code class="assignment operator">=</code> <code class="function"><a href="http://www.php.net/explode" title="PHP: explode - Manual">explode</a></code>(<code class="encapsed">&quot;_&quot;</code>,<var>$str</var>);
+			<var>$n</var> <code class="assignment operator">=</code> <code class="function"><a href="http://www.php.net/count" title="PHP: count - Manual">count</a></code>(<var>$silabe_mutatie</var>);
+			
+			<var>$s</var> <code class="assignment operator">=</code> <code class="function">Comune</code><code class="object operator">::</code><code class="function">sansa</code>(<code class="construct">array</code>(<code class="integer">39</code>,<code class="integer">13</code>,<code class="integer">13</code>,<code class="integer">42</code>,<code class="integer">125</code>));
+			
+			<code class="construct">if</code>     (<var>$s</var><code class="comparison operator">==</code><code class="integer">1</code>) <code class="comment">//schimba o silaba
+
+</code>
+			{
+				<var>$r</var> <code class="assignment operator">=</code> <code class="function"><a href="http://www.php.net/mt_rand" title="PHP: mt_rand - Manual">mt_rand</a></code>(<code class="integer">0</code>,<var>$n</var><code class="arithmetic operator">-</code><code class="integer">1</code>);
+				<var>$silabe_mutatie</var>[<var>$r</var>] <code class="assignment operator">=</code> <code class="function">NameSelection</code><code class="object operator">::</code><code class="function">silaba</code>();
+			}
+			<code class="construct">elseif</code> (<var>$s</var><code class="comparison operator">==</code><code class="integer">2</code>) <code class="comment">//adauga o silaba
+
+</code>
+			{
+				<var>$r</var> <code class="assignment operator">=</code> <code class="function"><a href="http://www.php.net/mt_rand" title="PHP: mt_rand - Manual">mt_rand</a></code>(<code class="integer">0</code>, <var>$n</var>);
+				<code class="construct">if</code> (<var>$r</var><code class="comparison operator">!=</code><var>$n</var>) <code class="comment">//trebuie mutat totul la dreapta daca nu nu este ultima+1
+
+</code>
+					<code class="construct">for</code> (<var>$i</var><code class="assignment operator">=</code><var>$n</var>; <var>$i</var><code class="comparison operator">&gt;</code><var>$r</var>; <var>$i</var><code class="assignment operator">--</code>)
+						<var>$silabe_mutatie</var>[<var>$i</var>] <code class="assignment operator">=</code> <var>$silabe_mutatie</var>[<var>$i</var><code class="arithmetic operator">-</code><code class="integer">1</code>];
+				<var>$silabe_mutatie</var>[<var>$r</var>] <code class="assignment operator">=</code> <code class="function">NameSelection</code><code class="object operator">::</code><code class="function">silaba</code>();
+			}
+			<code class="construct">elseif</code> (<var>$s</var><code class="comparison operator">==</code><code class="integer">3</code>) <code class="comment">//sterge o silaba
+
+</code>
+			{
+				<var>$r</var> <code class="assignment operator">=</code> <code class="function"><a href="http://www.php.net/mt_rand" title="PHP: mt_rand - Manual">mt_rand</a></code>(<code class="integer">0</code>, <var>$n</var><code class="arithmetic operator">-</code><code class="integer">1</code>);
+				<code class="construct">if</code> (<var>$r</var><code class="comparison operator">!=</code><var>$n</var><code class="arithmetic operator">-</code><code class="integer">1</code>) <code class="comment">//trebuie mutat totul la stanga daca nu nu este ultima
+
+</code>
+					<code class="construct">for</code> (<var>$i</var><code class="assignment operator">=</code><var>$r</var>; <var>$i</var><code class="comparison operator">&lt;</code><var>$n</var><code class="arithmetic operator">-</code><code class="integer">1</code>; <var>$i</var><code class="assignment operator">++</code>)
+						<var>$silabe_mutatie</var>[<var>$i</var>] <code class="assignment operator">=</code> <var>$silabe_mutatie</var>[<var>$i</var><code class="arithmetic operator">+</code><code class="integer">1</code>];
+				<code class="construct">unset</code>(<var>$silabe_mutatie</var>[<var>$n</var><code class="arithmetic operator">-</code><code class="integer">1</code>]);
+			}
+			<code class="construct">elseif</code> (<var>$s</var><code class="comparison operator">==</code><code class="integer">4</code>) <code class="comment">//schimba o litera
+
+</code>
+			{
+				<var>$r</var> <code class="assignment operator">=</code> <code class="function"><a href="http://www.php.net/mt_rand" title="PHP: mt_rand - Manual">mt_rand</a></code>(<code class="integer">0</code>,<var>$n</var><code class="arithmetic operator">-</code><code class="integer">1</code>);
+				<var>$silabe_mutatie</var>[<var>$r</var>] <code class="assignment operator">=</code> <code class="function">NameSelection</code><code class="object operator">::</code><code class="function">schim_litera</code>(<var>$silabe_mutatie</var>[<var>$r</var>]);
+			}
+			<code class="construct">elseif</code> (<var>$s</var><code class="comparison operator">==</code><code class="integer">5</code>) <code class="comment">//transforma o silaba
+
+</code>
+			{
+				<var>$r</var> <code class="assignment operator">=</code> <code class="function"><a href="http://www.php.net/mt_rand" title="PHP: mt_rand - Manual">mt_rand</a></code>(<code class="integer">0</code>,<var>$n</var><code class="arithmetic operator">-</code><code class="integer">1</code>);
+				<var>$silabe_mutatie</var>[<var>$r</var>] <code class="assignment operator">=</code> <code class="function">NameSelection</code><code class="object operator">::</code><code class="function">trans_silaba</code>(<var>$silabe_mutatie</var>[<var>$r</var>]);
+			}
+		} <code class="construct">while</code> (!<code class="function">NameSelection</code><code class="object operator">::</code><code class="function">valid</code>(<var>$silabe_mutatie</var>));
+		
+		<code class="construct">return</code> <code class="function"><a href="http://www.php.net/implode" title="PHP: implode - Manual">implode</a></code>(<code class="encapsed">'_'</code>,<var>$silabe_mutatie</var>);
+	}
+	
+	public static <code class="construct">function</code> <code class="function">afisare</code>(<var>$str</var>)
+	{
+		<code class="construct">return</code> <code class="encapsed">&quot;&lt;a href=\&quot;&quot;</code>.<var>$_SERVER</var>[<code class="encapsed">'PHP_SELF'</code>].&quot;?<code class="function">name</code>=<var>$str</var>\&amp;quot;&amp;gt;&quot;.<code class="function"><a href="http://www.php.net/ucfirst" title="PHP: ucfirst - Manual">ucfirst</a></code>(<code class="function"><a href="http://www.php.net/str_replace" title="PHP: str_replace - Manual">str_replace</a></code>(<code class="encapsed">'_'</code>,<code class="encapsed">''</code>,<var>$str</var>)).<code class="encapsed">&quot;&lt;/a&gt;&quot;</code>;
+	}
+	public static <code class="construct">function</code> <code class="function">copac</code>(<var>$str</var>, <var>$n</var>)
+	{
+		<code class="construct">if</code> (<var>$n</var><code class="comparison operator">==</code><code class="integer">0</code>) <var>$lista</var> <code class="assignment operator">=</code> <var>$n</var>.<code class="encapsed">'!'</code>.<var>$str</var>;
+		<code class="construct">else</code> <var>$lista</var> <code class="assignment operator">=</code> <code class="encapsed">&quot;\n&quot;</code>.<var>$n</var>.<code class="encapsed">'!'</code>.<var>$str</var>;
+		
+		<code class="construct">if</code> (<var>$n</var><code class="comparison operator">&lt;</code><code class="integer">6</code>)
+		{
+			<code class="construct">if</code> (<var>$n</var><code class="comparison operator">&lt;=</code><code class="integer">1</code>) <var>$nr</var> <code class="assignment operator">=</code> <code class="function"><a href="http://www.php.net/mt_rand" title="PHP: mt_rand - Manual">mt_rand</a></code>(<code class="integer">2</code>,<code class="integer">3</code>); <code class="construct">else</code> <var>$nr</var> <code class="assignment operator">=</code> <code class="function"><a href="http://www.php.net/mt_rand" title="PHP: mt_rand - Manual">mt_rand</a></code>(<code class="integer">0</code>,<code class="integer">3</code>);
+			<code class="construct">if</code> (<var>$nr</var><code class="comparison operator">!=</code><code class="integer">0</code>) <code class="construct">for</code> (<var>$i</var><code class="assignment operator">=</code><code class="integer">1</code>; <var>$i</var><code class="comparison operator">&lt;=</code><var>$nr</var>; <var>$i</var><code class="assignment operator">++</code>)
+				<var>$lista</var> <code class="assignment operator">.=</code> <code class="function">NameSelection</code><code class="object operator">::</code><code class="function">copac</code>(<code class="function">NameSelection</code><code class="object operator">::</code><code class="function">mutatie</code>(<var>$str</var>), <var>$n</var><code class="arithmetic operator">+</code><code class="integer">1</code>);
+		}
+		<code class="construct">return</code> <var>$lista</var>;
+	}
+	public static <code class="construct">function</code> <code class="function">arbore</code>(<var>$str</var>)
+	{
+		<var>$lista</var> <code class="assignment operator">=</code> <code class="function"><a href="http://www.php.net/explode" title="PHP: explode - Manual">explode</a></code>(<code class="encapsed">&quot;\n&quot;</code>, <code class="function">NameSelection</code><code class="object operator">::</code><code class="function">copac</code>(<var>$str</var>, <code class="integer">0</code>));
+		<var>$nr</var> <code class="assignment operator">=</code> <code class="function"><a href="http://www.php.net/count" title="PHP: count - Manual">count</a></code>(<var>$lista</var>);
+		<code class="construct">for</code> (<var>$i</var><code class="assignment operator">=</code><code class="integer">0</code>; <var>$i</var><code class="comparison operator">&lt;</code><var>$nr</var>; <var>$i</var><code class="assignment operator">++</code>)
+			<var>$lista</var>[<var>$i</var>] <code class="assignment operator">=</code> <code class="function"><a href="http://www.php.net/explode" title="PHP: explode - Manual">explode</a></code>(<code class="encapsed">'!'</code>, <var>$lista</var>[<var>$i</var>]);
+		<code class="construct">for</code> (<var>$i</var><code class="assignment operator">=</code><code class="integer">0</code>; <var>$i</var><code class="comparison operator">&lt;</code><var>$nr</var>; <var>$i</var><code class="assignment operator">++</code>)
+		{
+			<var>$niv</var> <code class="assignment operator">=</code> <var>$lista</var>[<var>$i</var>][<code class="integer">0</code>];
+			<var>$ultimCopil</var><code class="assignment operator">=</code><code class="integer">0</code>;
+			<code class="construct">for</code> (<var>$j</var><code class="assignment operator">=</code><var>$i</var><code class="arithmetic operator">+</code><code class="integer">1</code>; <var>$j</var><code class="comparison operator">&lt;</code><var>$nr</var>; <var>$j</var><code class="assignment operator">++</code>)
+			{
+				<code class="construct">if</code> (<var>$lista</var>[<var>$j</var>][<code class="integer">0</code>] <code class="comparison operator">&lt;=</code> <var>$niv</var>) <code class="construct">break</code>;
+				<code class="construct">if</code> (<var>$lista</var>[<var>$j</var>][<code class="integer">0</code>]<code class="arithmetic operator">-</code><code class="integer">1</code><code class="comparison operator">==</code><var>$niv</var>) <var>$ultimCopil</var> <code class="assignment operator">=</code> <var>$j</var>;
+			}
+			<code class="construct">if</code> (<var>$ultimCopil</var><code class="comparison operator">==</code><code class="integer">0</code>)
+			{
+				<var>$rand</var>[<var>$i</var>][<var>$niv</var>] <code class="assignment operator">=</code> <code class="integer">2</code>;
+			}
+			<code class="construct">else</code>
+
+			{
+				<var>$rand</var>[<var>$i</var>][<var>$niv</var>] <code class="assignment operator">=</code> <code class="integer">3</code>;
+				<code class="construct">for</code> (<var>$j</var><code class="assignment operator">=</code><var>$i</var><code class="arithmetic operator">+</code><code class="integer">1</code>; <var>$j</var><code class="comparison operator">&lt;</code><var>$ultimCopil</var>; <var>$j</var><code class="assignment operator">++</code>)
+					<code class="construct">if</code> (<var>$lista</var>[<var>$j</var>][<code class="integer">0</code>]<code class="arithmetic operator">-</code><code class="integer">1</code><code class="comparison operator">==</code><var>$niv</var>) <var>$rand</var>[<var>$j</var>][<var>$niv</var>] <code class="assignment operator">=</code> <code class="integer">5</code>;
+					<code class="construct">else</code> <var>$rand</var>[<var>$j</var>][<var>$niv</var>] <code class="assignment operator">=</code> <code class="integer">4</code>;
+				<var>$rand</var>[<var>$ultimCopil</var>][<var>$niv</var>] <code class="assignment operator">=</code> <code class="integer">6</code>;
+			}
+		}
+		<var>$rand</var>[<code class="integer">0</code>][<code class="integer">0</code>]<code class="assignment operator">=</code><code class="integer">1</code>;
+		<code class="construct">print</code> <code class="encapsed">'&lt;div style=&quot;line-height:1.0; font-size:14px;&quot; class=&quot;copac&quot;&gt;'</code>;
+		<code class="construct">for</code> (<var>$i</var><code class="assignment operator">=</code><code class="integer">0</code>; <var>$i</var><code class="comparison operator">&lt;</code><var>$nr</var>; <var>$i</var><code class="assignment operator">++</code>)
+		{
+			<var>$len</var> <code class="assignment operator">=</code> <code class="function"><a href="http://www.php.net/count" title="PHP: count - Manual">count</a></code>(<var>$rand</var>[<var>$i</var>]);
+			<code class="construct">for</code> (<var>$j</var><code class="assignment operator">=</code><code class="integer">0</code>; <var>$j</var><code class="comparison operator">&lt;</code><var>$len</var>; <var>$j</var><code class="assignment operator">++</code>)
+				<code class="construct">if</code> (<var>$rand</var>[<var>$i</var>][<var>$j</var>]) <code class="construct">print</code> <code class="encapsed">'&lt;img src=&quot;../../img/lista/tip'</code>.<var>$rand</var>[<var>$i</var>][<var>$j</var>].<code class="encapsed">'.gif&quot; alt=&quot;&quot; /&gt;'</code>;
+				<code class="construct">else</code> 
+				{
+					<code class="construct">print</code> <code class="encapsed">'&lt;img src=&quot;../../img/lista/tip0.gif&quot; alt=&quot;&quot; /&gt;'</code>;
+					<var>$len</var><code class="assignment operator">++</code>;
+				}
+			<code class="construct">print</code> <code class="encapsed">&quot; &quot;</code>.<code class="function">NameSelection</code><code class="object operator">::</code><code class="function">afisare</code>(<var>$lista</var>[<var>$i</var>][<code class="integer">1</code>]).<code class="encapsed">&quot;&lt;br /&gt;\n&quot;</code>;
+		}
+		<code class="construct">print</code> <code class="encapsed">'&lt;/div&gt;'</code>;
+	}
+}
+
+<code class="php-tag">?&gt;</code></pre>
+
+</body>
+</html>
