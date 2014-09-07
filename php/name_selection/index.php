@@ -11,7 +11,6 @@ afiseazaAntet('Name Selection 0.5 (Paul Scripts)', 'Generator de nume avansat fo
 <?php
 require 'name_selection_0_5.php';
 
-
 if (isset($_GET['name']))
 {
 	echo '<p>Muta&#355;ii primare pentru '.NameSelection::afisare($_GET['name']).'</p>';
@@ -19,13 +18,13 @@ if (isset($_GET['name']))
 	for ($i=0; $i<4; $i++)
 	{
 		echo '<td style="width:150px;">';
-		for ($j=0; $j<15; $j++)
+		for ($j=0; $j<3; $j++)
 			print NameSelection::afisare(NameSelection::mutatie($_GET['name'])) . "<br />";
 		echo '</td>';
-	}	
+	}
 	echo '</tr></table>';
 	echo '<p>Arbore de evolu&#355;ie:</p>';
-	
+
 	NameSelection::arbore($_GET['name']);
 }
 else
@@ -52,7 +51,6 @@ else
 	echo '</tr></table>';
 }
 ?>
-
 
 </div>
 <?php
