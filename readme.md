@@ -1,6 +1,6 @@
 # Paul Scripts
 
-My pre-collenge personal website.
+My pre-college personal website.
 
 ![cover](screenshot.png)
 
