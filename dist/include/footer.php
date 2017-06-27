@@ -16,10 +16,9 @@ function afiseazaFooter()
 		</ul>
 		<div id="butoane_titlu">Butoane</div>
 		<ul id="lista_butoane">
-			<li><a href="http://validator.w3.org/check?uri=referer"><img src="/img/btn/xhtml.png" alt="valid XHTML 1.0" /></a></li>
-			<li><a href="http://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fpaulscripts.iad.ro%2Fcss%2Fstyle.css&warning=1&profile=css21&usermedium=all"><img src="/img/btn/css.png" alt="valid CSS" /></a></li>
-			<li><a href="http://www.mozilla.com/en-US/firefox/"><img src="/img/btn/spread_firefox.png" alt="ia-ti Firefox" /></a></li>
-			<li><a class="statcounter" href="http://www.statcounter.com/"><img class="statcounter" src="http://c26.statcounter.com/counter.php?sc_project=2604775&java=0&security=16c4854a&invisible=0" alt="web metrics" /></a></li>
+			<li><a href="http://validator.w3.org/check?uri=referer"><img src="/paul-scripts/img/btn/xhtml.png" alt="valid XHTML 1.0" /></a></li>
+			<li><a href="http://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fpaulscripts.iad.ro%2Fcss%2Fstyle.css&warning=1&profile=css21&usermedium=all"><img src="/paul-scripts/img/btn/css.png" alt="valid CSS" /></a></li>
+			<li><a href="http://www.mozilla.com/en-US/firefox/"><img src="/paul-scripts/img/btn/spread_firefox.png" alt="ia-ti Firefox" /></a></li>
 		</ul>
 	</div>
 </div>
