@@ -6,13 +6,13 @@ function afiseazaFooter()
 	<div id="meniu">
 		<div id="meniu_titlu">Meniu</div>
 		<ul id="lista_linkuri">
-			<li><a href="/despre_sait.php" id="despre_sait"><span class="ascunde">Despre sait</span></a></li>
-			<li><a href="/php/index.php" id="php"><span class="ascunde">PHP</span></a></li>
-			<li><a href="/flash/index.php" id="flash"><span class="ascunde">Flash</span></a></li>
-			<li><a href="/python/index.php" id="python"><span class="ascunde">Python</span></a></li>
-			<li><a href="/imagini/index.php" id="imagini"><span class="ascunde">Imagini</span></a></li>
-			<li><a href="/pareri/index.php" id="pareri"><span class="ascunde">P&#259;reri</span></a></li>
-			<li><a href="/linkuri.php" id="linkuri"><span class="ascunde">Link-uri</span></a></li>
+			<li><a href="/paul-scripts/despre_sait.php" id="despre_sait"><span class="ascunde">Despre sait</span></a></li>
+			<li><a href="/paul-scripts/php/index.php" id="php"><span class="ascunde">PHP</span></a></li>
+			<li><a href="/paul-scripts/flash/index.php" id="flash"><span class="ascunde">Flash</span></a></li>
+			<li><a href="/paul-scripts/python/index.php" id="python"><span class="ascunde">Python</span></a></li>
+			<li><a href="/paul-scripts/imagini/index.php" id="imagini"><span class="ascunde">Imagini</span></a></li>
+			<li><a href="/paul-scripts/pareri/index.php" id="pareri"><span class="ascunde">P&#259;reri</span></a></li>
+			<li><a href="/paul-scripts/linkuri.php" id="linkuri"><span class="ascunde">Link-uri</span></a></li>
 		</ul>
 		<div id="butoane_titlu">Butoane</div>
 		<ul id="lista_butoane">
@@ -30,14 +30,6 @@ function afiseazaFooter()
 
 </div>
 </div>
-<!-- Start of StatCounter Code -->
-<script type="text/javascript">
-var sc_project=2604775; 
-var sc_invisible=0; 
-var sc_partition=25; 
-var sc_security="16c4854a"; 
-</script>
-<!-- End of StatCounter Code -->
 </body>
 </html>';
 }

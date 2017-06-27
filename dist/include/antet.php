@@ -19,9 +19,9 @@ function afiseazaAntet($titlu, $descriere, $cuvinteCheie)
 	<meta name="editor" content="Dreamweaver 8" />
 	<meta name="robots" content="all" />
 	<meta name="date" content="'  .date('Y-m-d') . 'T' . date('H:i:s').'+02:00'.  '" />
-	<link type="text/css" rel="stylesheet" media="screen" href="/css/style.css" /> 
-	<link type="text/css" rel="stylesheet" media="screen" href="/css/position.css" />
-	<link type="image/png" href="/favicon.png" rel="shortcut icon" />
+	<link type="text/css" rel="stylesheet" media="screen" href="/paul-scripts/css/style.css" /> 
+	<link type="text/css" rel="stylesheet" media="screen" href="/paul-scripts/css/position.css" />
+	<link type="image/png" href="/paul-scripts/favicon.png" rel="shortcut icon" />
 </head>
 
 <body>
