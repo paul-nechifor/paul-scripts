@@ -11,9 +11,9 @@ afiseazaAntet('Imagini (Paul Scripts)', 'Imagini facute in Photoshop si Illustra
 <p>Diferite imagini modificate sau create &icirc;n totalitate de mine.</p>
 
 <ul class="lista_sc">
-	<li><a href="/imagini/bancnota666">Bancnota de 666 LEI</a> (creat&#259; dup&#259; modelul bancnotei de 500 RON)</li>
-	<li><a href="/imagini/sahdehartie">&#350;ah de h&acirc;rtie</a> (de ad&#259;ugat)</li>
-	<li><a href="/imagini/hexacarti">Hexacar&#355;i</a> (de ad&#259;ugat)</li>
+	<li><a href="/college-website/proiecte/bancnota666/">Bancnota de 666 LEI</a> (creat&#259; dup&#259; modelul bancnotei de 500 RON)</li>
+	<li><a href="#">&#350;ah de h&acirc;rtie</a> (de ad&#259;ugat)</li>
+	<li><a href="#">Hexacar&#355;i</a> (de ad&#259;ugat)</li>
 </ul>
 
 </div>
