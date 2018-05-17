@@ -14,7 +14,7 @@ afiseazaAntet('Despre sait (Paul Scripts)', '', '');
 	<h3>Cum am f&#259;cut saitul?</h3>
 <p>Am f&#259;cut mai multe saituri p&acirc;n&#259; acum, dar nu au prea avut succes. &Icirc;nainte s&#259; &#351;tiu CSS f&#259;ceam (ca mul&#355;i al&#355;i) o sut&#259; de tabele &#351;i imagini t&#259;iate ca s&#259; se potriveasc&#259;. M-am obijnuit acum s&#259; folosesc numai CSS pentru aranjarea pagini. Asta este chiar metoda recomandat&#259; de <a href="http://en.wikipedia.org/wiki/W3C">W3C</a>. Problema este c&#259; nu arat&#259; bine &icirc;n Internet Explorer 6, browser-ul care este folosit de majoritatea oamenilor (chiar dac&#259; a aparut IE7). Navigatorul &#259;sta nu poate poate afi&#351;a PNG-uri cu transparen&#355;&#259; (cum sunt imaginile de la meniu din dreapta). Dac&#259; vrei s&#259; vezi pagina asta bine trebuie s&#259; folose&#351;ti Mozilla Firefox, Opera sau alte navigatoare care afi&#351;eaz&#259; corect pagini cu CSS. </p>
 <p>&Icirc;n antet am folosit fontul <em>Ruritania</em> &#351;i &icirc;n meniu &#351;i titlurile paginilor principale  <em>Zapfino</em>. Imaginea din antet este o frunz&#259; uscat&#259;. Pe fundal este o pentagram&#259; invers&#259; pu&#355;in &icirc;nclinat&#259;.</p>
-<p>Dac&#259; ai &icirc;ntreb&#259;ri sau vrei s&#259;-&#355;i spui parerea despre sait &#351;i programele, imaginile, etc. de pe el vezi pagina <a href="/pareri">P&#259;reri</a>. </p>
+<p>Dac&#259; ai &icirc;ntreb&#259;ri sau vrei s&#259;-&#355;i spui parerea despre sait &#351;i programele, imaginile, etc. de pe el vezi pagina <a href="/paul-scripts/pareri/">P&#259;reri</a>. </p>
 
 </div>
 <?php

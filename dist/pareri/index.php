@@ -20,7 +20,7 @@ try
 		Parere::adaugaParere($_POST['rasp'], $_POST['nume'], $_POST['sait'], date('Y-m-d').'T'.date('H:i:s'),
 				 $_SERVER['REMOTE_ADDR'], $_POST['mesaj'], $_POST['codul'], $_POST['verif']);
 	}
-	
+
 	Parere::afiseazaPareri();
 	$codul = Parere::inc(Parere::cod());
 

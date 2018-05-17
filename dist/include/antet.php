@@ -5,7 +5,7 @@ function afiseazaAntet($titlu, $descriere, $cuvinteCheie)
 	if ($titlu=='') $titlu = 'Paul Scripts';
 	if ($descriere=='') $descriere = 'Saitul personal al lui Paul Nechifor pe care se afla scripturi PHP, Python si Actionscript dar si altele.';
 	if ($cuvinteCheie=='') $cuvinteCheie = 'Paul Nechifor, Paul Scripts, sait personal, script, PHP, Python, Flash, ActionScript, XML, XHTML, CSS, programe, jocuri';
-	
+
 	print '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ro">
 <head>

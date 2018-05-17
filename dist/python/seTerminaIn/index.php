@@ -8,7 +8,7 @@ afiseazaAntet('Se termina &icirc;n... (Paul Scripts)', 'Script Python pentru afi
 </div>
 <div id="scris">
 
-<p>Afi&#351;eaz&#259; denumirile care se termin&#259; &icirc;ntr-un sufix dat. Am f&#259;cut <em>micro-scriptul</em> &#259;sta pentru a fi folosit cu <a href="/altele/numesiprenume/">lista de nume &#351;i prenume</a> extras&#259; de mine din baza de date a unui program de numere de telefoane. Po&#355;i vedea numele de familie care se termin&#259; &icirc;n &quot;<a href="/altele/numesiprenume/escu.html">escu</a>&quot; extrase cu scriptul &#259;sta. </p>
+<p>Afi&#351;eaz&#259; denumirile care se termin&#259; &icirc;ntr-un sufix dat. Am f&#259;cut <em>micro-scriptul</em> &#259;sta pentru a fi folosit cu <a href="../../altele/numesiprenume/">lista de nume &#351;i prenume</a> extras&#259; de mine din baza de date a unui program de numere de telefoane. Po&#355;i vedea numele de familie care se termin&#259; &icirc;n &quot;<a href="../../altele/numesiprenume/escu.html">escu</a>&quot; extrase cu scriptul &#259;sta. </p>
 
 <div class="highlight"><pre><span class="n">lista</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;Cum se numeste fisierul cu lista: &quot;</span><span class="p">)</span>
 <span class="n">sufix</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">&quot;Ce sufix vrei: &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">();</span>

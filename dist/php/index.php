@@ -12,9 +12,9 @@ afiseazaAntet('PHP (Paul Scripts)', 'Scripturi PHP facute de Paul Nechifor', 'Pa
 <p>PHP a fost primul limbaj de programare pe care l-am &icirc;nva&#355;at singur. Vroiam s&#259; fac un chestionar online, dar toate scripturile de chestionare pe care le g&#259;seam erau ori prea sofisticate ori prea banale. Deci am citit un tutorial c&#259; s&#259;-l fac singur. De atunci am citit o carte de PHP &#351;i am f&#259;cut c&acirc;teva saituiri &icirc;n PHP pe l&acirc;ng&#259; scripturi.</p>
 <p>Scripturi:</p>
 <ul class="lista_sc">
-	<li><a href="/php/name_selection">Name Selection 0.5</a> (generez&#259; denumiri, mult mai avansat)</li>
-	<li><a href="/php/name_generator">Name Generator 0.4</a> (genereaz&#259; nume proprii, dar este cam vechi)</li>
-	<li><a href="/php/shuffle_letters">Shuffle Letters</a> (amestec&#259; literele din centrul unui cuv&acirc;nt)</li>
+	<li><a href="/college-website/proiecte/name_selection/">Name Selection 0.5</a> (generez&#259; denumiri, mult mai avansat)</li>
+	<li><a href="/college-website/proiecte/name_generator/">Name Generator 0.4</a> (genereaz&#259; nume proprii, dar este cam vechi)</li>
+	<li><a href="shuffle_letters">Shuffle Letters</a> (amestec&#259; literele din centrul unui cuv&acirc;nt)</li>
 </ul>
 
 </div>
