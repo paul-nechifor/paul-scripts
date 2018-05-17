@@ -21,5 +21,16 @@ div#meniu {width:226px; position:absolute; left:736px; top:0px; background:url(.
 div#scris {padding: 10px 10px 10px 90px;}
 div#titlu {padding: 10px 10px 10px 90px;}
 
-div#footer {width: 963px; height:100px; background:url(../img/footer.gif) no-repeat;}
-div#copyright {width:300px; position:relative; left:380px; top:60px;}
+div#footer {width: 963px; height:45px; padding-top:55px; background:url(../img/footer.gif) no-repeat;}
+div#copyright {
+  height: 100px;
+  text-align: center;
+  height: 45px;
+}
+div#copyright small {
+  font-size: 13px;
+}
+div#copyright small a {
+  color: #f1b444;
+  text-decoration: none;
+}

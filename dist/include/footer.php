@@ -2,7 +2,7 @@
 function afiseazaFooter()
 {
 	print '
-	</div>	
+	</div>
 	<div id="meniu">
 		<div id="meniu_titlu">Meniu</div>
 		<ul id="lista_linkuri">
@@ -24,7 +24,8 @@ function afiseazaFooter()
 </div>
 <div id="footer">
 	<div id="copyright">
-		Copyright &copy; 2007 <em>Paul Nechifor</em>
+		Copyright &copy; 2007 <em>Paul Nechifor</em><br>
+    <small><a href="/">Home</a> &bull; <a href="/blog">Blog</a> &bull; <a href="/projects">Projects</a> &bull; <a href="https://twitter.com/PaulNechifor">Twitter</a></small>
 	</div>
 
 </div>
