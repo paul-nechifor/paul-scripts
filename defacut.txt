@@ -1,8 +1,0 @@
-- sa schimb copyright-ul cu o imagini, nu text
-- sa schimb desrierea la despre_site, si la index
-- sa vad de ce lista apare departata la name_selection
-- sa fac pagina pareri si sa pun un mecanism captcha
-- sa pun un favicon si pe index
-- sa sterg php.css si sa scriu pe prima pagina ca dau sursa la scripturi la cine o cere
-- sa pun ceva de contact
-- ar trebui sa schimb pagina despre_site in pagina_principala?

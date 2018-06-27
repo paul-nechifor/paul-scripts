@@ -1,3 +1,7 @@
+# This repository has been moved to [gitlab.com/paul-nechifor/paul-scripts](http://gitlab.com/paul-nechifor/paul-scripts).
+
+Old readme:
+
 # Paul Scripts
 
 My pre-college personal website.
